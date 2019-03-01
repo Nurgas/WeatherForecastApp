@@ -27,7 +27,7 @@ public class WeatherRemoteDataSource implements WeatherDataSource {
         call.enqueue(new Callback<WeatherResponse>() {
             @Override
             public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
-                Log.d("ololo", call.request().url().toString());
+                Log.d("Response", call.request().url().toString());
 
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
@@ -43,7 +43,7 @@ public class WeatherRemoteDataSource implements WeatherDataSource {
 
             @Override
             public void onFailure(Call<WeatherResponse> call, Throwable t) {
-                Log.d("ololo", "Failure " + t.getMessage());
+                Log.d("Fail", "Failure " + t.getMessage());
                 callback.onFailure();
             }
         });
